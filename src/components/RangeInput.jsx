@@ -7,7 +7,7 @@ export const RangeInput = ({ idx, name, value, min, max, right, updateInput }) =
           <input
             className="range-input__field"
             type="number"
-            value={value}
+            value={right}
             onChange={(e) => console.log(e)}
           />
           <input
@@ -18,7 +18,7 @@ export const RangeInput = ({ idx, name, value, min, max, right, updateInput }) =
             value={value}
             onChange={(e) => updateInput(e, idx)}
           />
-          <div className="range-input__right">{right}---%</div>
+          <div className="range-input__right">{value}%</div>
         </div>
       ) : (
         <div className="range-input">
