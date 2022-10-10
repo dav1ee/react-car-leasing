@@ -1,0 +1,81 @@
+.range-input {
+  height: 68px;
+  padding: 16px 24px;
+  background-color: #f3f3f4;
+  border-radius: 16px;
+  position: relative;
+  border: 2px solid transparent;
+
+  &:active {
+    background-color: $white;
+    border-color: #f3f3f4;
+  }
+
+  label {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    font-family: 'Gilroy';
+    font-weight: 400;
+    font-size: 16px;
+    color: $light-gray;
+  }
+
+  &__field {
+    width: 100%;
+    height: 100%;
+
+    background-color: transparent;
+    border: 0;
+    font-weight: 900;
+    font-size: 30px;
+    color: $light-gray;
+  }
+
+  &__slider {
+    width: 88%;
+    height: 1px;
+    position: absolute;
+    left: 23px;
+    bottom: -2px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: $orange;
+
+    &::-webkit-slider-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 30px;
+      -webkit-appearance: none;
+      background-color: $orange;
+    }
+  }
+
+  &__right {
+    position: absolute;
+    top: 13px;
+    right: 24px;
+
+    font-size: 30px;
+    font-weight: 900;
+    color: $light-gray;
+  }
+
+  @media screen and (max-width: 1119px) {
+    margin-top: 50px;
+  }
+
+  @media screen and (max-width: 767px) {
+    height: 60px;
+    margin-top: 20px;
+
+    label {
+      font-size: 14px;
+      top: -30px;
+    }
+
+    &__field {
+      font-size: 22px;
+    }
+  }
+}
