@@ -1,8 +1,11 @@
-export const RangeInput = ({ idx, name, value, min, max, right, updateInput }) => {
+import { forwardRef } from 'react';
+import { motion } from 'framer-motion';
+
+export const RangeInput = forwardRef(({ idx, name, value, min, max, right, updateInput }, ref) => {
   return (
     <>
       {name === 'Первоначальный взнос' ? (
-        <div className="range-input">
+        <div className="range-input" ref={ref}>
           <label>{name}</label>
           <input
             className="range-input__field"
@@ -21,7 +24,7 @@ export const RangeInput = ({ idx, name, value, min, max, right, updateInput }) =
           <div className="range-input__right">{value}%</div>
         </div>
       ) : (
-        <div className="range-input">
+        <div className="range-input" ref={ref}>
           <label>{name}</label>
           <input
             className="range-input__field"
@@ -42,4 +45,6 @@ export const RangeInput = ({ idx, name, value, min, max, right, updateInput }) =
       )}
     </>
   );
-};
+});
+
+export const MRangeInput = motion(RangeInput);

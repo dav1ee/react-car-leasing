@@ -1,9 +1,21 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 import { InputList } from './components/InputList';
 import { ResultsList } from './components/ResultsList';
 
 import './scss/app.scss';
+
+const titleAnimation = {
+  hidden: {
+    y: -100,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
 
 const App = () => {
   const [inputs, setInputs] = React.useState([
@@ -123,13 +135,15 @@ const App = () => {
   };
 
   return (
-    <div className="container">
-      <h1 className="title">Рассчитайте стоимость автомобиля в лизинг</h1>
+    <motion.div initial="hidden" whileInView="visible" className="container">
+      <motion.h1 variants={titleAnimation} className="title">
+        Рассчитайте стоимость автомобиля в лизинг
+      </motion.h1>
       <div className="wrapper">
         <InputList items={inputs} updateInput={updateInput} />
         <ResultsList items={results} onSubmit={onSubmit} />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
